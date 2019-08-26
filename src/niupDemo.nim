@@ -26,14 +26,14 @@ var hexpand = iupExpander(toolbox)
 iupSetAttribute(hexpand,"TITLE", "TOOLBOX")
 #    CANVAS
 # set an iup canvas (because cairo canvas hard fail :-( ) 
-let  CD_CAIRO_NATIVEWINDOW = cdContextCairoNativeWindow()
+#let  CD_CAIRO_NATIVEWINDOW = cdContextCairoNativeWindow()
 let canvas = iupCanvas(nil)
 iupSetAttribute(canvas, "SIZE", "100x100")
 iupSetAttribute(canvas, "EXPAND", "YES")
 discard iupSetAttributes(canvas, "CURSOR=CROSS, SCROLLBAR=YES, DX=0.5, DY=0.5")
 
 # get context draw on canvas
-#let CD_IUP* = cdContextIup()
+let CD_IUP* = cdContextIup()
 
 let cdcanvas = cdCreateCanvas(CD_IUP,  canvas)
 

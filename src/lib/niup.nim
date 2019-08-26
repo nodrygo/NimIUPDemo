@@ -18,7 +18,7 @@
 # included in all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# untypedESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 # IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 # CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
@@ -568,34 +568,34 @@ const
   IUP_BUTTON3* = '3'
   IUP_BUTTON4* = '4'
   IUP_BUTTON5* = '5'
-template iupIsshift*(s: expr): expr = 
+template iupIsshift*(s: untyped): untyped = 
   (s[0] == 'S')
 
-template iupIscontrol*(s: expr): expr = 
+template iupIscontrol*(s: untyped): untyped = 
   (s[1] == 'C')
 
-template iupIsbutton1*(s: expr): expr = 
+template iupIsbutton1*(s: untyped): untyped = 
   (s[2] == '1')
 
-template iupIsbutton2*(s: expr): expr = 
+template iupIsbutton2*(s: untyped): untyped = 
   (s[3] == '2')
 
-template iupIsbutton3*(s: expr): expr = 
+template iupIsbutton3*(s: untyped): untyped = 
   (s[4] == '3')
 
-template iupIsdouble*(s: expr): expr = 
+template iupIsdouble*(s: untyped): untyped = 
   (s[5] == 'D')
 
-template iupIsalt*(s: expr): expr = 
+template iupIsalt*(s: untyped): untyped = 
   (s[6] == 'A')
 
-template iupIssys*(s: expr): expr = 
+template iupIssys*(s: untyped): untyped = 
   (s[7] == 'Y')
 
-template iupIsbutton4*(s: expr): expr = 
+template iupIsbutton4*(s: untyped): untyped = 
   (s[8] == '4')
 
-template iupIsbutton5*(s: expr): expr = 
+template iupIsbutton5*(s: untyped): untyped = 
   (s[9] == '5')
 
 
@@ -750,7 +750,7 @@ const
 
 
   # Printable ASCii keys 
-template iupIsprint*(c: expr): expr = 
+template iupIsprint*(c: untyped): untyped = 
     ((c) > 31 and (c) < 127)
 
 # also define the escape sequences that have keys associated 
@@ -761,7 +761,7 @@ const
   K_CRETURN* = cint(13)
   # backward compatible definitions 
 
-template iupIsXkey*(c: expr): expr = 
+template iupIsXkey*(c: untyped): untyped = 
     ((c) >= 128)
 const 
     K_quoteleft* = K_grave
@@ -820,31 +820,31 @@ const
   # Modifiers use last 4 bits. Since IUP 3.9           
   # These modifiers definitions are specific to IUP    
   #****************************************************
-template iupIsShiftXkey*(c: expr): expr = 
+template iupIsShiftXkey*(c: untyped): untyped = 
     ((c) and 0x10000000)
 
-template iupIsCtrlXkey*(c: expr): expr = 
+template iupIsCtrlXkey*(c: untyped): untyped = 
     ((c) and 0x20000000)
 
-template iupIsAltXkey*(c: expr): expr = 
+template iupIsAltXkey*(c: untyped): untyped = 
     ((c) and 0x40000000)
 
-template iupIsSysXkey*(c: expr): expr = 
+template iupIsSysXkey*(c: untyped): untyped = 
     ((c) and 0x80000000)
 
-template iupXkeyBase*(c: expr): expr = 
+template iupXkeyBase*(c: untyped): untyped = 
     ((c) and 0x0FFFFFFF)
 
-template iupXkeyShift*(c: expr): expr = 
+template iupXkeyShift*(c: untyped): untyped = 
     ((c) or 0x10000000)       # Shift  
   
-template iupXkeyCtrl*(c: expr): expr = 
+template iupXkeyCtrl*(c: untyped): untyped = 
     ((c) or 0x20000000)       # Ctrl   
   
-template iupXkeyAlt*(c: expr): expr = 
+template iupXkeyAlt*(c: untyped): untyped = 
     ((c) or 0x40000000)       # Alt    
   
-template iupXkeySys*(c: expr): expr = 
+template iupXkeySys*(c: untyped): untyped = 
     ((c) or 0x80000000)       # Sys (Win or Apple) 
   
   # These definitions are here for backward compatibility 

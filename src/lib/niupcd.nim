@@ -21,7 +21,7 @@
 #included in all copies or substantial portions of the Software.
 #
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-#EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#untypedESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 #MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 #IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 #CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
@@ -469,19 +469,19 @@ proc cdDecodeAlpha*(color: clong): cuchar {.cdecl, importc: "cdDecodeAlpha",
     dynlib: libcd.}
 proc cdEncodeAlpha*(color: clong; alpha: cuchar): clong {.cdecl, 
     importc: "cdEncodeAlpha", dynlib: libcd.}
-template cdAlpha*(s: expr): expr = 
+template cdAlpha*(s: untyped): untyped = 
   cast[cuchar]((not (((s) shr 24) and 0x000000FF)))
 
-template cdReserved*(s: expr): expr = 
+template cdReserved*(s: untyped): untyped = 
   cast[cuchar]((((s) shr 24) and 0x000000FF))
 
-template cdRed*(s: expr): expr = 
+template cdRed*(s: untyped): untyped = 
   cast[cuchar]((((s) shr 16) and 0x000000FF))
 
-template cdGreen*(s: expr): expr = 
+template cdGreen*(s: untyped): untyped = 
   cast[cuchar]((((s) shr 8) and 0x000000FF))
 
-template cdBlue*(s: expr): expr = 
+template cdBlue*(s: untyped): untyped = 
   cast[cuchar]((((s) shr 0) and 0x000000FF))
 
 # client image color convertion 
