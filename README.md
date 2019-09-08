@@ -1,3 +1,6 @@
+*OBSOLETE* please user the better, more finished and very good  https://github.com/dariolah/niup instead 
+
+
 # NimIUPDemo
 this is a DEMO for some to the IUP, Scintilla and CD librarie for [Nim programming language](http://nim-lang.org)  
 
